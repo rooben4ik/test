@@ -12,9 +12,13 @@
     height: 200px;
     border-radius: 50%;
     background: conic-gradient(
-      red 0deg 60deg, yellow 60deg 120deg, green 120deg 180deg,
-      blue 180deg 240deg, orange 240deg 300deg, purple 300deg 360deg
-    );
+        #f8bbd0 0deg 60deg, /* Насичений світло-рожевий */
+        #fff59d 60deg 120deg, /* Насичений світло-жовтий */
+        #c8e6c9 120deg 180deg, /* Насичений світло-зелений */
+        #b3e5fc 180deg 240deg, /* Насичений світло-блакитний */
+        #ffcc80 240deg 300deg, /* Насичений світло-помаранчевий */
+        #e1bee7 300deg 360deg /* Насичений світло-фіолетовий */
+      ); 
     border: 5px solid black;
     transition: transform 5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
@@ -35,7 +39,24 @@
     font-weight: bold;
     font-size: 18px;
   }
-  
+  .light {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #FFA500;
+    box-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+    z-index: 1;
+    &.selected {
+      background-color: #28a745;
+      box-shadow: 0 0 5px #0000CD, 0 0 10px #0000CD;
+    }
+  }
+
   .arrow {
     position: absolute;
     top: 35.4%;

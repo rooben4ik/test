@@ -1,10 +1,11 @@
 <div class="wheel-container">
   <div class="arrow"></div>
   <div class="wheel" [style.transform]="rotationStyle">
-    <div class="sector" *ngFor="let sector of sectors; let i = index" [style.transform]="'rotate(' + ((i * 60)-18) + 'deg)'">
-      {{ sector }} 
+    <div class="sector" *ngFor="let sector of sectors; let i = index" [style.transform]="'rotate(' + (i * 60) + 'deg)'">
+      {{ sector }}
+      <div class="light" [class.active]="spinningLights" [class.selected]="selectedLights[i]"></div>
     </div>
   </div>
-  <button (click)="spinWheel()">Крутити</button>
+  <button [disabled]="isSpinning" (click)="spinWheel()">Крутити</button>
   <p *ngIf="selectedValue" class="result" [class.animate]="animateResult">{{ selectedValue }}</p>
 </div>
