@@ -1,0 +1,75 @@
+
+.wheel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+  }
+  .wheel {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(
+      red 0deg 60deg, yellow 60deg 120deg, green 120deg 180deg,
+      blue 180deg 240deg, orange 240deg 300deg, purple 300deg 360deg
+    );
+    border: 5px solid black;
+    transition: transform 5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sector {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 50%;
+    transform-origin: left bottom;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 35.4%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 20px solid black;
+    z-index: 10;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .result {
+    position: absolute;
+    top: 39%;
+    left: 48.4%;
+    transform: translate(-50%, -50%);
+    font-size: 45px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+  .animate {
+    animation: pop-up 2s ease-in-out forwards;
+  }
+  @keyframes pop-up {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.5); color: gold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);}
+    100% { opacity: 0; transform: scale(1); }
+}
